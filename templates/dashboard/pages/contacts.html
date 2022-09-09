@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>{{ contacts.choices }}</title>
+</head>
+
+<body>
+    <style>
+        body {
+            display: grid;
+            background-color: #000000;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg fill-opacity='0.98'%3E%3Cpolygon fill='%23220000' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23440000' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23660000' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23880000' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23A00' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+            background-attachment: fixed;
+            background-size: cover;
+            place-items: center;
+            min-height: 100vh;
+        }
+
+        .gohome {
+            position: absolute;
+            top: 30px;
+            text-decoration: none;
+            color: #fff;
+            left: 40px;
+            font-size: 2rem;
+            z-index: 10;
+        }
+
+        .mobile{
+            margin-right: 40px;
+            margin-left: 30px;
+        }
+        .email{
+            margin-left: 10px;
+        }
+    </style>
+
+
+
+    <a class="gohome" href="{% url 'dashboard:home' %}"><i class="fa-solid fa-arrow-left"></i></a>
+    <div class="context">
+        <div class="container text-light" >
+            <h1 class="full_name">To`liq Ismi: {{ contacts.full_name }}</h1>
+            <span class="mt-4 mb-4">Turi: {{ contacts.choices }}</span>
+            <p class="msg">Xabar: {{ contacts.message}}</p>
+            <div class="d-flex justify-content-between">
+                <div style="text-align: center;">
+                    <a href="tel:{{ contacts.mobile }}" class="mobile "><i class="fa-solid fa-phone fa-lg text-light"></i></a>
+                    <p>Telefon</p>
+                </div>
+                <div>
+                    <a href="mailto:{{ contacts.email }}" class="email"><i class="fa-solid fa-paper-plane fa-lg text-light"></i></a>
+                    <p>Email</p>
+                </div>
+                <div>
+                    
+                    <div class="d-flex">
+                        <span>
+                            <div class="d.flex">
+                            <!-- <i class="fa-regular fa-calendar-check fa-lg text-light"></i> -->
+                            <p>{{ contacts.date }}</p>
+                            </div>
+                            <p>Yubirlgan Vaqt</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
