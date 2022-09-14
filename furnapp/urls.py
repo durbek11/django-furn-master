@@ -12,5 +12,5 @@ urlpatterns = [
     path("signup/", signup, name="signup"),
     path('profile/', profile, name="profile"),
     path('submit-succses/', SuccsesView.as_view(), name="succses"),
-    path("start-<int:pk>-product/", star, name="star")
+    path('rate-image/', rate_img, name="rate")
 ]
