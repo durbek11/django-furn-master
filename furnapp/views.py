@@ -6,6 +6,7 @@ from .form import *
 from django.db.models import Q
 from django.http import JsonResponse
 
+
 def home(request):
     
     category = request.GET.get('category')
@@ -88,10 +89,26 @@ def profile(request):
     return render(request, 'pages/profile.html', context)
 
 
+def star(request, pk):
+
+    form = ProductRateForm()
+    if request.method == "POST":
+        form = ProductRateForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/")
+
+    which_one = Product.objects.get(id=pk)
+    context={
+        "which_one":which_one,
+        "form":form
+    }
+    return render(request, "pages/star.html", context)
+
 class SuccsesView(generic.TemplateView):
     template_name = "pages/succses.html"
     # rate-star
-def home(request):
+def rate(request):
     rate = RateStar.objects.filter(score=2).order_by("?").first()
     context = {
         "rate": rate
