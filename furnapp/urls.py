@@ -13,5 +13,6 @@ urlpatterns = [
     path('profile/', profile, name="profile"),
     path('submit-succses/', SuccsesView.as_view(), name="succses"),
     path("start-<int:pk>-product/", star, name="star"),
-        path('rate/', rate, name="rate")
+    path('rate-image/', rate_img, name="rate_img"),
+    path('ratehome', ratehome, name="ratehome"),
 ]

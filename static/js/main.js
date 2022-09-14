@@ -107,19 +107,11 @@ if (one) {
 
     		$.ajax({
     			type: "POST",
-    			url: "/rate-check/",
+    			url: "/rate-image/",
     			data: {
     				"csrfmiddlewaretoken": csrf[0].value,
     				"el_id": id,
     				"val": val_num,
-    			},
-    			success: function(response) {
-    				console.log(response)
-    				confirmBox.innerHTML = `<h1>Succesfully rated with ${response.score}</h1>`
-    			},
-    			error: function(error) {
-    				console.log(error)
-    				confirmBox.innerHTML = `<h1>Ooops, something went wrong!</h1>`
     			},
     		})
     	})

@@ -38,7 +38,8 @@
     
             .btn-11 {
                 position: relative;
-                bottom: 100px;
+                bottom: 400px;
+                left: 80px;
                 border: none;
                 border-radius: 50px;
                 background: rgb(47, 33, 251);
@@ -48,6 +49,8 @@
                 width: 120px;
                 height: 35 px;
                 font-size: 27px;
+                text-decoration: none;
+                padding: 10px 10px 10px 70px;
             }
     
             .btn-11:hover {
@@ -105,8 +108,8 @@
         <img src="{{ rate.img.url }}" alt="" width="500" height="400">
         <div class="frame">
     
-            <a href="{% url 'furn:rate' %}"><button class="custom-btn btn-11">Next<div class="dot"></div></button></a>
-            <a href="{% url 'furn:profile' %}">Home</a>
+            <a href="{% url 'furn:ratehome' %}"><button class="custom-btn btn-11">Next<div class="dot"></div></button></a>
+           
     
             <p style="font-family: Andale Mono, monospace;">
     
@@ -125,7 +128,8 @@
     
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
             {% else %}
-            <h1>Rate qilgani rasm qolmadi!</h1>
+            <h1>Rate qilgani rasm qolmadi!!</h1>
+            <a href="{% url 'furn:home' %}" class="btn-11">Home</a>
             {% endif %}
     </body>
     
