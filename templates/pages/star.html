@@ -38,8 +38,7 @@
     
             .btn-11 {
                 position: relative;
-                bottom: 400px;
-                left: 80px;
+                bottom: 100px;
                 border: none;
                 border-radius: 50px;
                 background: rgb(47, 33, 251);
@@ -49,8 +48,6 @@
                 width: 120px;
                 height: 35 px;
                 font-size: 27px;
-                text-decoration: none;
-                padding: 10px 10px 10px 70px;
             }
     
             .btn-11:hover {
@@ -103,6 +100,49 @@
                     opacity: 0;
                 }
             }
+            .btn-2 {
+                position: relative;
+                bottom: 400px;
+                left: 80px;
+                border: none;
+                border-radius: 50px;
+                background: rgb(47, 33, 251);
+                background: linear-gradient(0deg, rgb(33, 73, 251) 0%, rgb(76, 113, 234) 100%);
+                color: #fff;
+                overflow: hidden;
+                width: 120px;
+                height: 35 px;
+                font-size: 27px;
+                text-decoration: none;
+                padding: 10px 10px 10px 70px;
+            }
+            .btn-2:hover {
+                text-decoration: none;
+                color: #fff;
+            }
+            .btn-2:before {
+                position: absolute;
+                content: '';
+                display: inline-block;
+                top: -180px;
+                left: 0;
+                width: 30px;
+                height: 100%;
+                background-color: #fff;
+                animation: shiny-btn1 3s ease-in-out infinite;
+            }
+            .btn-2:hover {
+                opacity: .7;
+            }
+    
+            .btn-2:active {
+                box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
+                    -4px -4px 6px 0 rgba(116, 125, 136, .2),
+                    inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+                    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+            }
+    
+            
         </style>
         {% if rate %}
         <img src="{{ rate.img.url }}" alt="" width="500" height="400">
@@ -129,7 +169,7 @@
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
             {% else %}
             <h1>Rate qilgani rasm qolmadi!!</h1>
-            <a href="{% url 'furn:home' %}" class="btn-11">Home</a>
+            <a href="{% url 'furn:home' %}" class="btn-2">Home</a>
             {% endif %}
     </body>
     

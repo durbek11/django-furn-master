@@ -109,7 +109,7 @@ class SuccsesView(generic.TemplateView):
     template_name = "pages/succses.html"
     # rate-star
 def ratehome(request):
-    rate = RateStar.objects.filter(score=2).order_by("?").first()
+    rate = RateStar.objects.filter(score=0).order_by("?").first()
     context = {
         "rate": rate
     }
