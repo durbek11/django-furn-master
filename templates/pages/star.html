@@ -165,17 +165,14 @@
             <button type="submit" class="fa fa-star fa-3x btns " id="third"></button>
             <button type="submit" class="fa fa-star fa-3x btns" id="fourth"></button>
             <button type="submit" class="fa fa-star fa-3x btns" id="fifth"></button>
-
             <br>
             <div id="confirm-box"></div>
         </form>
         <script src="{% static 'js/main.js' %}"></script>
-
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         {% else %}
         <h1>Rate qilgani rasm qolmadi!!</h1>
         <a href="{% url 'furn:home' %}" class="btn-2">Home</a>
         {% endif %}
 </body>
-
 </html>
