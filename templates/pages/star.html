@@ -1,179 +1,181 @@
-    <!DOCTYPE html>{% load static %}
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-        <title>Document</title>
-    </head>
-    
-    <body>
-        <style>
-            body {
-                display: grid;
-                justify-content: center;
-                align-items: center;
-                margin-left: auto;
-                margin-right: auto;
-                min-height: 100vh;
+<!DOCTYPE html>{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            min-height: 100vh;
+        }
+
+        .checked {
+            color: rgb(217, 255, 0);
+        }
+
+        form {
+            position: relative;
+            bottom: 250px;
+        }
+
+        .fa-3x {
+            border: none;
+            background: none;
+        }
+
+        .btns {
+            background-color: inherit !important;
+            border: 0 !important;
+        }
+
+        .btn-11 {
+            position: relative;
+            bottom: 100px;
+            border: none;
+            border-radius: 50px;
+            background: rgb(47, 33, 251);
+            background: linear-gradient(0deg, rgb(33, 73, 251) 0%, rgb(76, 113, 234) 100%);
+            color: #fff;
+            overflow: hidden;
+            width: 120px;
+            height: 35 px;
+            font-size: 27px;
+            margin-left: 30px;
+        }
+
+        .btn-11:hover {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .btn-11:before {
+            position: absolute;
+            content: '';
+            display: inline-block;
+            top: -180px;
+            left: 0;
+            width: 30px;
+            height: 100%;
+            background-color: #fff;
+            animation: shiny-btn1 3s ease-in-out infinite;
+        }
+
+        .btn-11:hover {
+            opacity: .7;
+        }
+
+        .btn-11:active {
+            box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2),
+                inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+                inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+        }
+
+        @keyframes shiny-btn1 {
+            0% {
+                -webkit-transform: scale(0) rotate(45deg);
+                opacity: 0;
             }
-            .checked {
-                color: rgb(217, 255, 0);
+
+            80% {
+                -webkit-transform: scale(0) rotate(45deg);
+                opacity: 0.5;
             }
-            form {
-                position: relative;
-                bottom: 250px;
+
+            81% {
+                -webkit-transform: scale(4) rotate(45deg);
+                opacity: 1;
             }
-            .fa-3x {
-                border: none;
-                background: none;
+
+            100% {
+                -webkit-transform: scale(50) rotate(45deg);
+                opacity: 0;
             }
-    
-            .btns {
-                background-color: inherit !important;
-                border: 0 !important;
-            }
-    
-            .btn-11 {
-                position: relative;
-                bottom: 100px;
-                border: none;
-                border-radius: 50px;
-                background: rgb(47, 33, 251);
-                background: linear-gradient(0deg, rgb(33, 73, 251) 0%, rgb(76, 113, 234) 100%);
-                color: #fff;
-                overflow: hidden;
-                width: 120px;
-                height: 35 px;
-                font-size: 27px;
-                margin-left: 30px;
-            }
-    
-            .btn-11:hover {
-                text-decoration: none;
-                color: #fff;
-            }
-    
-            .btn-11:before {
-                position: absolute;
-                content: '';
-                display: inline-block;
-                top: -180px;
-                left: 0;
-                width: 30px;
-                height: 100%;
-                background-color: #fff;
-                animation: shiny-btn1 3s ease-in-out infinite;
-            }
-    
-            .btn-11:hover {
-                opacity: .7;
-            }
-    
-            .btn-11:active {
-                box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
-                    -4px -4px 6px 0 rgba(116, 125, 136, .2),
-                    inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
-                    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
-            }
-    
-    
-            @keyframes shiny-btn1 {
-                0% {
-                    -webkit-transform: scale(0) rotate(45deg);
-                    opacity: 0;
-                }
-    
-                80% {
-                    -webkit-transform: scale(0) rotate(45deg);
-                    opacity: 0.5;
-                }
-    
-                81% {
-                    -webkit-transform: scale(4) rotate(45deg);
-                    opacity: 1;
-                }
-    
-                100% {
-                    -webkit-transform: scale(50) rotate(45deg);
-                    opacity: 0;
-                }
-            }
-            .btn-2 {
-                position: relative;
-                bottom: 400px;
-                left: 80px;
-                border: none;
-                border-radius: 50px;
-                background: rgb(47, 33, 251);
-                background: linear-gradient(0deg, rgb(33, 73, 251) 0%, rgb(76, 113, 234) 100%);
-                color: #fff;
-                overflow: hidden;
-                width: 120px;
-                height: 35 px;
-                font-size: 27px;
-                text-decoration: none;
-                padding: 10px 10px 10px 70px;
-            }
-            .btn-2:hover {
-                text-decoration: none;
-                color: #fff;
-            }
-            .btn-2:before {
-                position: absolute;
-                content: '';
-                display: inline-block;
-                top: -180px;
-                left: 0;
-                width: 30px;
-                height: 100%;
-                background-color: #fff;
-                animation: shiny-btn1 3s ease-in-out infinite;
-            }
-            .btn-2:hover {
-                opacity: .7;
-            }
-    
-            .btn-2:active {
-                box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
-                    -4px -4px 6px 0 rgba(116, 125, 136, .2),
-                    inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
-                    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
-            }
-    
-            
-        </style>
-        {% if rate %}
-        <img src="{{ rate.img.url }}" alt="" width="500" height="400">
-        <div class="frame">
-    
-            <a href="{% url 'furn:ratehome' %}"><button class="custom-btn btn-11">Next<div class="dot"></div></button></a>
-            <a href="{% url 'furn:home' %}"><button class="custom-btn btn-11">Home<div class="dot"></div></button></a>
-            <a href="{% url 'furn:login' %}"><button class="custom-btn btn-11">LogIn<div class="dot"></div></button></a>
-           
-    
-            <p style="font-family: Andale Mono, monospace;">
-    
-            <form method="post" class="rate-form" id="{{ rate.id }}">
-                {% csrf_token %}
-                <button type="submit" class="fa fa-star fa-3x btns " id="first"></button>
-                <button type="submit" class="fa fa-star fa-3x btns " id="second"></button>
-                <button type="submit" class="fa fa-star fa-3x btns " id="third"></button>
-                <button type="submit" class="fa fa-star fa-3x btns" id="fourth"></button>
-                <button type="submit" class="fa fa-star fa-3x btns" id="fifth"></button>
-    
-                <br>
-                <div id="confirm-box"></div>
-            </form>
-            <script src="{% static 'js/main.js' %}"></script>
-    
-            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-            {% else %}
-            <h1>Rate qilgani rasm qolmadi!!</h1>
-            <a href="{% url 'furn:home' %}" class="btn-2">Home</a>
-            {% endif %}
-    </body>
-    
-    </html>
+        }
+
+        .btn-2 {
+            position: relative;
+            bottom: 400px;
+            left: 80px;
+            border: none;
+            border-radius: 50px;
+            background: rgb(47, 33, 251);
+            background: linear-gradient(0deg, rgb(33, 73, 251) 0%, rgb(76, 113, 234) 100%);
+            color: #fff;
+            overflow: hidden;
+            width: 120px;
+            height: 35 px;
+            font-size: 27px;
+            text-decoration: none;
+            padding: 10px 10px 10px 70px;
+        }
+
+        .btn-2:hover {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .btn-2:before {
+            position: absolute;
+            content: '';
+            display: inline-block;
+            top: -180px;
+            left: 0;
+            width: 30px;
+            height: 100%;
+            background-color: #fff;
+            animation: shiny-btn1 3s ease-in-out infinite;
+        }
+
+        .btn-2:hover {
+            opacity: .7;
+        }
+
+        .btn-2:active {
+            box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .3),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2),
+                inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
+                inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+        }
+    </style>
+    {% if rate %}
+    <img src="{{ rate.img.url }}" alt="" width="500" height="400">
+    <div class="frame">
+
+        <a href="{% url 'furn:ratehome' %}"><button class="custom-btn btn-11">Next<div class="dot"></div></button></a>
+        <a href="{% url 'furn:home' %}"><button class="custom-btn btn-11">Home<div class="dot"></div></button></a>
+        <a href="{% url 'furn:login' %}"><button class="custom-btn btn-11">LogIn<div class="dot"></div></button></a>
+
+
+        <p style="font-family: Andale Mono, monospace;">
+
+        <form method="post" class="rate-form" id="{{ rate.id }}">
+            {% csrf_token %}
+            <button type="submit" class="fa fa-star fa-3x btns " id="first"></button>
+            <button type="submit" class="fa fa-star fa-3x btns " id="second"></button>
+            <button type="submit" class="fa fa-star fa-3x btns " id="third"></button>
+            <button type="submit" class="fa fa-star fa-3x btns" id="fourth"></button>
+            <button type="submit" class="fa fa-star fa-3x btns" id="fifth"></button>
+
+            <br>
+            <div id="confirm-box"></div>
+        </form>
+        <script src="{% static 'js/main.js' %}"></script>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        {% else %}
+        <h1>Rate qilgani rasm qolmadi!!</h1>
+        <a href="{% url 'furn:home' %}" class="btn-2">Home</a>
+        {% endif %}
+</body>
+
+</html>
