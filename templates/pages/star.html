@@ -172,6 +172,7 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         {% else %}
         <h1>Rate qilgani rasm qolmadi!!</h1>
+        <h3>{{ avg_rate.score__avg }}</h3>
         <a href="{% url 'furn:home' %}" class="btn-2">Home</a>
         {% endif %}
 </body>

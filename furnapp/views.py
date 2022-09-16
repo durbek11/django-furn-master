@@ -5,6 +5,7 @@ from django.views import generic
 from .form import *
 from django.db.models import Q
 from django.http import JsonResponse
+from django.db.models import Avg
 
 
 def home(request):
@@ -110,8 +111,10 @@ class SuccsesView(generic.TemplateView):
     # rate-star
 def ratehome(request):
     rate = RateStar.objects.filter(score=0).order_by("?").first()
+    avg_rate = RateStar.objects.aggregate(Avg("score"))
     context = {
-        "rate": rate
+        "rate": rate,
+        "avg_rate": avg_rate
     }
     return render(request, "pages/star.html", context )
 
