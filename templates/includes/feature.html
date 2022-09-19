@@ -1,0 +1,61 @@
+{% load static %}
+
+<style>
+    .gray{
+        color: gray !important;
+    }
+</style>
+
+<section id="product" class="feature">
+    <div class="container">
+        <div class="section-header">
+            <h2>featured products</h2>
+        </div>
+        <!--/.section-header-->
+        <div class="feature-content">
+            <div class="row">
+                {% for y in products %}
+                <div class="col-sm-3 all">
+                    <div class="single-feature">
+                        <img src="{{ y.img.url }}" alt="feature image" width="300">
+                        <div class="single-feature-txt text-center">
+                            <a href="{% url 'furn:star' y.id %}">
+                                <p>
+                                    <i class="fa fa-star gray star" id="first"></i>
+                                    <i class="fa fa-star gray star" id="second"></i>
+                                    <i class="fa fa-star gray star" id="third"></i>
+                                    <i class="fa fa-star gray star" id="fourth"></i>
+                                    <i class="fa fa-star gray star" id="fifth"></i>
+                                    <span class="feature-review">{{ y.score }}</span>
+                                </p>
+                            </a>
+                            <h3>{{ y.title }}</h3>
+                            <h5>${{ y.price }}</h5>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% if not products %}
+                <div class="col-sm-3 ">
+                    <div class="single-feature">
+                        <img src="{% static 'images/features/none.png' %}" alt="feature image" width="300">
+                        <div class="single-feature-txt text-center">
+                            <p>
+                                <span class="spacial-feature-icon"><i class="fa fa-star"></i></span>
+                                <span class="spacial-feature-icon"><i class="fa fa-star"></i></span>
+                                <span class="spacial-feature-icon"><i class="fa fa-star"></i></span>
+                                <span class="spacial-feature-icon"><i class="fa fa-star"></i></span>
+                                <span class="spacial-feature-icon"><i class="fa fa-star"></i></span>
+                                <span class="feature-review">(0 review)</span>
+                            </p>
+                            <h3><a href="#">Mahsulot topilmadi.</a></h3>
+                            <h5>$0</h5>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <!--/.container-->
+</section>

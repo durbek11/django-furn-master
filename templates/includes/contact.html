@@ -1,0 +1,34 @@
+<div class="container py-4 " id="contactus" style="width: 700px; margin-top: 70px; margin-bottom:70px ;">
+
+    <form id="contactForm" method="post">
+        {% load widget_tweaks %}
+        {% csrf_token %}
+        <div style="margin-top: 20px; margin-bottom: 20px;">
+            <label class="form-label" for="choices">Choice</label>
+            {% render_field form.choices type="text" class="form-control" id="choices" %}
+        </div>
+        <div style="margin-top: 20px; margin-bottom: 20px;">
+            <label class="form-label" for="name">Full Name</label>
+            {% render_field form.full_name type="text" class="form-control" id="name" placeholder="Enter Your Full Name"%}
+        </div>
+
+        <div style="margin-top: 20px; margin-bottom: 20px;">
+            <label class="form-label" for="emailAddress">Email Address</label>
+            {% render_field form.email type="text" class="form-control" id="emailAddress" placeholder="Enter Your Email Address"%}
+        </div>
+        <div  style="margin-top: 20px; margin-bottom: 20px;">
+            <label class="form-label" for="mobile">Mobile</label>
+            {% render_field form.mobile type="text" class="form-control" id="mobile" placeholder="Enter Your Mobile number"%}
+        </div>
+        <div  style="margin-top: 20px; margin-bottom: 20px;">
+            <label class="form-label" for="message">Message</label>
+            {% render_field form.message type="text" class="form-control" id="message" placeholder="Enter Your Message"%}
+        </div>
+
+        <div class="">
+            <button class="btn btn-primary btn-lg" style="width:100%;" type="submit">Submit</button>
+        </div>
+
+    </form>
+
+</div>

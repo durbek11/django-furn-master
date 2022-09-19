@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta charset="UTF-8">
+</head>
+<title>Star rating Product</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+<body>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* .box{
+            position: relative;
+        } */
+        body {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+        }
+
+        .checked {
+            color: gold;
+        }
+
+        .btns {
+            background-color: inherit !important;
+            border: 0 !important;
+            font-size: 30px;
+        }
+
+        a {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            text-decoration: none;
+            font-size: 50px;
+            color: black;
+            text-transform: uppercase;
+            font-family: serif;
+            transition: 1s all;
+
+        }
+        .comment{
+            overflow: scroll !important;
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 300px;
+            right: 200px;
+        }
+        #id_authour{
+            display: none;
+        }
+    </style>
+    <div class="comment">
+        {% for comment in comments %}
+        <div class="comments" style="padding: 10px;">
+            <h3 class="font-weight-bold">
+                {{ comment.authour.first_name }}: {{ comment.message }}
+            </h3>
+        </div>
+        {% endfor %}
+        {% if not comments %}
+        <h1>No comments yet</h1>
+        {% endif %}
+    </div>
+    <div class="box">
+        <a class="fa-solid fa-arrow-left" href="/#product"></a>
+        <div>
+            <img src="{{ which_one.img.url }}" height="500">
+            <h1>{{ which_one.title }}</h1>
+        </div>
+        <form class="rate-form" method="post" id="{{ which_one.id }}">
+            {% csrf_token %}
+            <button type="submit" class="fa-solid fa-star btns" id="first"></button>
+            <button type="submit" class="fa-solid fa-star btns" id="second"></button>
+            <button type="submit" class="fa-solid fa-star btns" id="third"></button>
+            <button type="submit" class="fa-solid fa-star btns" id="fourth"></button>
+            <button type="submit" class="fa-solid fa-star btns" id="fifth"></button>
+        </form>
+        {% if  request.user.is_authenticated %}
+        <form method="post" class="d-flex mt-4">
+            {% csrf_token %}
+            {% load widget_tweaks %}
+            {{ comment_form.authour }}
+            {% render_field comment_form.message type="text" class="form-control" placeholder="Leave comment" %}
+            <button type="submit" class="btn btn-info">Send</button>
+        </form>
+        {% endif %}
+        <div id="confirm-box"></div>
+        
+    </div>
+
+    <script src="{% static 'js/rate.js' %}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{% static 'js/home.js' %}"></script>
+    <script>
+        let autor = document.querySelector('#id_authour')
+        let options = autor.querySelectorAll('option')
+
+        options.forEach(function (item) {
+            if (item.innerHTML == '{{ request.user.email }}') {
+                item.selected = true
+            }
+            else {
+                item.remove()
+            }
+        })
+
+        
+    </script>
+</body>
+
+</html>

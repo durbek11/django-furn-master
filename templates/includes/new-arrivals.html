@@ -1,0 +1,53 @@
+{% load static %}
+
+<style>
+    .links{
+        border: 1px solid aqua !important;
+        text-decoration: none !important;
+        display: inline-block !important;
+        padding: 10px 15px !important;
+        margin-top: 10px;
+        margin-left: 20px;
+    }
+</style>
+
+<section id="new-arrivals" class="new-arrivals">
+    <div class="container">
+        <div class="section-header">
+            <h2>new arrivals</h2>
+            <a class="links" href="{% url 'furn:home' %}#new-arrivals">All</a>
+            {% for category in categoryes %}
+            <a class="links" href="{% url 'furn:home' %}?category={{ category.category_name }}#new-arrivals">{{ category.category_name }}</a>
+            {% endfor %}
+        </div>
+        <!--/.section-header-->
+        <div class="new-arrivals-content">
+            <div class="row">
+                {% for y in arrivals %}
+                <div class="col-md-3 col-sm-4">
+                    <div class="single-new-arrival">
+                        <div class="single-new-arrival-bg">
+                            <img src="{{ y.arrivals_img.url }}" alt="new-arrivals images">
+                            <div class="single-new-arrival-bg-overlay"></div>
+                            <div class="new-arrival-cart">
+                                <p>
+                                    <span class="lnr lnr-cart"></span>
+                                    <a href="#">add <span>to </span> cart</a>
+                                </p>
+                                <p class="arrival-review pull-right">
+                                    <span class="lnr lnr-heart"></span>
+                                    <span class="lnr lnr-frame-expand"></span>
+                                </p>
+                            </div>
+                        </div>
+                        <h4><a href="{% url 'furn:arrivals_detal' y.pk %}">{{ y.arrivals_title }}</a></h4>
+                        <p class="arrival-product-price">${{ y.arrivals_price }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!--/.container-->
+
+</section>

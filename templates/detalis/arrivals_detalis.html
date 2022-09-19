@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+{% block title %} Detalis {% endblock title %}
+{% block content %}
+
+
+<section id="new-arrivals" class="new-arrivals">
+    <div class="container">
+        <div class="wrapper-card">
+            <div class="product-img">
+                <img src="{{ arrivals_detalis.arrivals_img.url }}" height="420" width="327">
+            </div>
+            <div class="product-info">
+                <div class="product-text">
+                    <h1>{{ arrivals_detalis.arrivals_title }}</h1>
+                    <div id="text">{{ arrivals_detalis.arrivals_text }}</div>
+                    <p>Size: {{ arrivals_detalis.arrivals_size }}</p>
+                </div>
+                <div class="product-price-btn">
+                    <p id="price">${{ arrivals_detalis.arrivals_price }}</p>
+                    <button type="button">buy now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+{% endblock content %}

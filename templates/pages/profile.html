@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div>
+        <img src="{{ user.profile.image.url }}" alt="">
+        <h3>{{ user.first_name }}</h3>
+        <h3>{{ user.email }}</h3>
+        <h3>{{ user.profile.bio }}</h3>
+        <span>{{ user.profile.card_number }}</span>
+        <form  method="post" enctype="multipart/form-data">
+            {% load widget_tweaks %}
+            {% csrf_token %}
+          <div class="row">
+            <div class="col-md-6 form-group mt-5">
+                {% render_field user_form.first_name type="text" class="form-control" %}
+            </div>
+            <div class="col-md-6 form-group mt-5">
+                {% render_field user_form.last_name type="text" class="form-control" %}
+            </div>
+            <div class="col-md-6 form-group mt-5">
+                {% render_field user_form.email type="text" class="form-control" %}
+            </div>
+            <div class="col-md-6 form-group mt-5">
+                {% render_field profile_form.bio type="text" class="form-control" %}
+            </div>
+            <div class="col-md-6 form-group mt-5">
+                {% render_field profile_form.card_number type="text" class="form-control" %}
+            </div>
+            <div class="col-md-6 form-group mt-5">
+                {% render_field profile_form.address type="text" class="form-control" %}
+            </div>
+            <div class="col-md-6 form-group mt-5">
+                {% render_field profile_form.mobile_number type="text" class="form-control" %}
+            </div>
+            <div class="col-md-6 form-group mt-5">
+                {% render_field profile_form.card_number type="text" class="form-control" %}
+            </div>
+            <div class="col-md-6 form-group mt-5">
+                {% render_field profile_form.image type="file" class="form-control" %}
+            </div>
+          </div>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+
+   
+
+</body>
+
+</html>
