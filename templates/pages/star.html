@@ -28,18 +28,23 @@
         }
 
         .fa-3x {
+            position: relative;
+            top: 40px;
             border: none;
             background: none;
         }
 
         .btns {
+            margin-top: 30px;
+            margin-right: 10px;
             background-color: inherit !important;
             border: 0 !important;
         }
 
         .btn-11 {
             position: relative;
-            bottom: 100px;
+            bottom: 40px;
+            right: 20px;
             border: none;
             border-radius: 50px;
             background: rgb(47, 33, 251);
@@ -101,6 +106,17 @@
                 opacity: 0;
             }
         }
+        .h3 {
+            position: relative;
+            bottom: 137px;
+            left: 15px;
+            font-size: 30px;
+        }
+
+        .h1 {
+            position: relative;
+            top: 100px;
+        }
 
         .btn-2 {
             position: relative;
@@ -158,6 +174,7 @@
 
         <p style="font-family: Andale Mono, monospace;">
 
+           
         <form method="post" class="rate-form" id="{{ rate.id }}">
             {% csrf_token %}
             <button type="submit" class="fa fa-star fa-3x btns " id="first"></button>
@@ -165,14 +182,15 @@
             <button type="submit" class="fa fa-star fa-3x btns " id="third"></button>
             <button type="submit" class="fa fa-star fa-3x btns" id="fourth"></button>
             <button type="submit" class="fa fa-star fa-3x btns" id="fifth"></button>
-            <br>
-            <div id="confirm-box"></div>
         </form>
+        <br>
+        <div id="confirm-box"></div>
         <script src="{% static 'js/main.js' %}"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <h3 class="h3">{{ avg_rate.score__avg }}</h3>
         {% else %}
-        <h1>Rate qilgani rasm qolmadi!!</h1>
-        <h3>{{ avg_rate.score__avg }}</h3>
+        <h1 class="h1">Rate qilgani rasm qolmadi!!</h1>  
+        <h3 class="h3">{{ avg_rate.score__avg }}</h3>
         <a href="{% url 'furn:home' %}" class="btn-2">Home</a>
         {% endif %}
 </body>
